@@ -11,7 +11,6 @@ export const ChildControls: React.FC<ChildControlsProps> = ({ buttons, onTap }) 
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const handlePointerDown = (btn: ChildButton) => {
-    console.log('Child button tapped:', btn.id);
     setActiveId(btn.id);
     onTap(btn.type, btn.color);
     
