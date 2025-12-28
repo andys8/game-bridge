@@ -2,7 +2,7 @@
 
 # Game title and short description
 
-BrückenZauber: A cooperative puzzle adventure for father and toddler (approx. 1-2 years). Father and child play together on the same tablet or smartphone. The father solves demanding construction and logic tasks, the child performs simple touch actions (tapping or swiping) and thereby helps to build a magical bridge. The goal is to complete the bridge through shared skill and cooperation. The game runs entirely as an offline web app in HTML/JavaScript (for example as a Progressive Web App) and offers colorful, child-appropriate graphics as well as sonorous reward and feedback elements.
+Bridge Magic: A cooperative puzzle adventure for father and toddler (approx. 1-2 years). Father and child play together on the same tablet or smartphone. The father solves demanding construction and logic tasks, the child performs simple touch actions (tapping or swiping) and thereby helps to build a magical bridge. The goal is to complete the bridge through shared skill and cooperation. The game runs entirely as an offline web app in HTML/JavaScript (for example as a Progressive Web App) and offers colorful, child-appropriate graphics as well as sonorous reward and feedback elements.
 
 # Gameplay and objective
 

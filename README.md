@@ -1,4 +1,4 @@
-# BrückenZauber (Bridge Magic)
+# Bridge Magic
 
 A cooperative puzzle adventure for father and toddler.
 
