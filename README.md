@@ -44,7 +44,8 @@ This repo includes a GitHub Action to deploy automatically.
 ## Manual QA / How to Play
 1. Open the game on a smartphone.
 2. **Orientation:** Portrait is recommended.
-3. **Child:** Tap the colorful buttons at the bottom.
+3. **Child Safety:** The game requests fullscreen on start. For maximum safety (preventing accidental app switching), we recommend using **"Guided Access"** on iOS or **"App Pinning"** on Android.
+4. **Child:** Tap the colorful buttons at the bottom.
    - *Verify:* Parts appear in the play area or "Inbox".
    - *Verify:* Fun sound plays.
 4. **Father:** Drag the parts to the ghost outlines on the bridge.
