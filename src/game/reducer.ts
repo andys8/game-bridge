@@ -2,6 +2,7 @@ import type { GameState, PartType, PartColor, DraggablePart, Position, FeedbackI
 import { LEVELS } from './levels';
 
 export type Action =
+  | { type: 'START_GAME' }
   | { type: 'TAP_CHILD_BUTTON'; payload: { type: PartType; color: PartColor } }
   | { type: 'START_DRAG'; payload: { id: string } }
   | { type: 'MOVE_DRAG'; payload: { id: string; position: Position } }
@@ -11,6 +12,7 @@ export type Action =
   | { type: 'CLEAR_FEEDBACK'; payload: { id: string } };
 
 export const INITIAL_STATE: GameState = {
+  phase: 'intro',
   currentLevelIndex: 0,
   slots: LEVELS[0].slots,
   childButtons: LEVELS[0].availableChildButtons,
@@ -28,8 +30,14 @@ const SNAP_DISTANCE_THRESHOLD = 15; // Percent of screen dimension roughly
 
 export function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
+    case 'START_GAME': {
+      return {
+        ...state,
+        phase: 'playing'
+      };
+    }
+
     case 'TAP_CHILD_BUTTON': {
-      console.log('Reducer: TAP_CHILD_BUTTON', action.payload);
       // Spawn a new part.
       // Limit number of loose parts to avoid clutter (e.g., max 5)
       const looseParts = state.draggableParts.filter(p => !p.isLocked);

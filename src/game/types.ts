@@ -37,7 +37,10 @@ export interface LevelConfig {
   availableChildButtons: ChildButton[];
 }
 
+export type GamePhase = 'intro' | 'playing';
+
 export interface GameState {
+  phase: GamePhase;
   currentLevelIndex: number;
   slots: BridgeSlot[];
   draggableParts: DraggablePart[];

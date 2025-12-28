@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 import { gameReducer, INITIAL_STATE } from './reducer';
 import { ChildControls } from '../components/ChildControls';
 import { ParentBridgeBuilder } from '../components/ParentBridgeBuilder';
+import { IntroScreen } from '../components/IntroScreen';
 
 // Simple Audio Synth
 const playTone = (freq: number, type: 'sine' | 'square' | 'triangle' | 'sawtooth' = 'sine', duration = 0.1) => {
@@ -57,6 +58,10 @@ export const GameEngine: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [state.isLevelComplete]);
+
+  if (state.phase === 'intro') {
+    return <IntroScreen onStart={() => dispatch({ type: 'START_GAME' })} />;
+  }
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden">
