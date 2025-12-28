@@ -5,8 +5,28 @@ interface IntroScreenProps {
 }
 
 export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
+  const handleStart = () => {
+    // Request fullscreen for a better child-safe experience
+    const docElem = document.documentElement as any;
+    try {
+      if (docElem.requestFullscreen) {
+        docElem.requestFullscreen();
+      } else if (docElem.webkitRequestFullscreen) {
+        docElem.webkitRequestFullscreen();
+      } else if (docElem.mozRequestFullScreen) {
+        docElem.mozRequestFullScreen();
+      } else if (docElem.msRequestFullscreen) {
+        docElem.msRequestFullscreen();
+      }
+    } catch (err) {
+      console.warn("Fullscreen request failed", err);
+    }
+    
+    onStart();
+  };
+
   return (
-    <div className="absolute inset-0 z-50 bg-sky-100 flex flex-col items-center justify-center p-8 text-center">
+    <div className="absolute inset-0 z-50 bg-sky-100 flex flex-col items-center justify-center p-8 text-center overflow-auto">
       <h1 className="text-4xl font-bold text-sky-700 mb-8">Bridge Magic</h1>
       
       <div className="bg-white p-6 rounded-2xl shadow-xl max-w-sm w-full space-y-8">
@@ -30,14 +50,15 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
           </div>
         </div>
 
-        <div className="pt-4">
-           <p className="text-lg font-medium text-green-700 mb-4">Work together to finish the bridge!</p>
+        <div className="pt-4 text-center">
+           <p className="text-lg font-medium text-green-700 mb-6 italic">Work together to finish the bridge!</p>
            <button 
-             onClick={onStart}
-             className="w-full bg-green-500 hover:bg-green-600 text-white text-2xl font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95"
+             onClick={handleStart}
+             className="w-full bg-green-500 hover:bg-green-600 text-white text-2xl font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95 cursor-pointer"
            >
              Start Playing! 🚀
            </button>
+           <p className="mt-4 text-xs text-gray-400 font-medium uppercase tracking-wider">Fullscreen mode will be requested</p>
         </div>
       </div>
     </div>
