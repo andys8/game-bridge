@@ -33,6 +33,13 @@ npm run build
 This generates static files in `dist/`.
 
 ## Deployment (GitHub Pages)
+
+
+
+Play the game here: [https://andys8.github.io/game-bridge/](https://andys8.github.io/game-bridge/)
+
+
+
 This repo includes a GitHub Action to deploy automatically.
 1. Go to Settings > Pages.
 2. Set Source to `GitHub Actions`.
