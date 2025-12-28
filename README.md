@@ -2,6 +2,8 @@
 
 A cooperative puzzle adventure for father and toddler.
 
+**[Play the game here!](https://andys8.github.io/game-bridge/)**
+
 ## Game Description
 Two players (Father and Child) play together on one device.
 - **Child (Bottom/Left):** Taps large colorful buttons to "unlock" bridge parts.
@@ -33,7 +35,6 @@ npm run build
 This generates static files in `dist/`.
 
 ## Deployment (GitHub Pages)
-Play the game here: [https://andys8.github.io/game-bridge/](https://andys8.github.io/game-bridge/)
 
 This repo includes a GitHub Action to deploy automatically.
 1. Go to Settings > Pages.
