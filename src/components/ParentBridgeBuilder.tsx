@@ -9,6 +9,7 @@ interface ParentProps {
 }
 
 export const ParentBridgeBuilder: React.FC<ParentProps> = ({ state, dispatch }) => {
+  console.log('ParentBridgeBuilder render. Parts:', state.draggableParts.length);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragMap = useRef<Record<number, string>>({});
 
@@ -58,6 +59,11 @@ export const ParentBridgeBuilder: React.FC<ParentProps> = ({ state, dispatch }) 
       ref={containerRef}
       className="relative w-full h-full bg-blue-50 overflow-hidden touch-none"
     >
+        {/* Debug Overlay */}
+        <div className="absolute top-2 left-2 bg-black/50 text-white p-2 text-xs rounded z-50 pointer-events-none">
+            Parts: {state.draggableParts.length} | Slots: {state.slots.filter(s => s.isFilled).length}/{state.slots.length}
+        </div>
+
         {/* Background / Environment - Simple River/Sky */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute bottom-0 w-full h-1/4 bg-blue-300"></div> {/* Water */}

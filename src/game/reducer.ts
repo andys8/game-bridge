@@ -29,6 +29,7 @@ const SNAP_DISTANCE_THRESHOLD = 15; // Percent of screen dimension roughly
 export function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
     case 'TAP_CHILD_BUTTON': {
+      console.log('Reducer: TAP_CHILD_BUTTON', action.payload);
       // Spawn a new part.
       // Limit number of loose parts to avoid clutter (e.g., max 5)
       const looseParts = state.draggableParts.filter(p => !p.isLocked);
@@ -40,7 +41,7 @@ export function gameReducer(state: GameState, action: Action): GameState {
         color: action.payload.color,
         // Spawn at random position in "Inbox" area (e.g., bottom/side of parent screen)
         // We will handle specific coordinate mapping in the UI, but here we set initial logic coordinates
-        position: { x: 50 + (Math.random() * 20 - 10), y: 80 + (Math.random() * 10 - 5) },
+        position: { x: 50 + (Math.random() * 20 - 10), y: 50 + (Math.random() * 10 - 5) },
         isLocked: false,
         isDragging: false
       };
